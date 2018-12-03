@@ -1,0 +1,10 @@
+#p1
+size = int(input("How many elements do you want?"))
+titles = [None] * size
+print ("Enter your favorite titles.")
+for x in range(0,size):
+    titles[x] = str(input())
+print (str(titles) )
+#p2
+class time:
+    arr = [[None]*7]
