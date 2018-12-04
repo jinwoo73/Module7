@@ -1,26 +1,41 @@
 #p1
-size = int(input("How many elements do you want?"))
-titles = [None] * size
-print ("Enter your favorite titles.")
-for x in range(0,size):
-    titles[x] = str(input())
-print (str(titles) )
+# size = int(input("How many elements do you want?"))
+# titles = [None] * size
+# print ("Enter your favorite titles.")
+# for x in range(0,size):
+#     titles[x] = str(input())
+# print (str(titles) )
 #p2
-class time:
-    r = int(input("How many activities do you want to do?"))
-    c = int(input("How many hours do you want to spend"))
-    arr = [[None]*r]*c
-    
-    
-    def ask():
-        for i in range(0,r):
-            for j in range(0,c):
 
-        
-    def printlines():
-        for r in range(0,1):
-            for c in range(0,7):
-                print (arr[r][c], "This row could represent your hours spent ", activity1)
+class time:
+    # arr = [[None]*r]*c
+    def __init__(self):
+        self.days_of_week = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+        self.activities = []
+        self.hours = []
+    
+    def activities_list(self, r):
+        print("List your activities")
+        for i in range(0, r):
+            self.activities.append(input("Activity #{0}: ".format(i)))
+        print("List of activities: ", self.activities) # for debugging purposes
+        return self.activities
+    
+    def ask(self, r):
+        self.hours = [[0 for x in range(7)] for y in range(r)]
+        self.activities_list(r)
+        for i in range(0,r):
+            for j in range(0,7):
+                self.hours[i][j] = (int(input("How many hours have you spent on {0} doing {1}: ".format(self.days_of_week[j], self.activities[i]))))
+        print(self.hours) # debugging only
+        return self.hours
+
+    # def printlines():
+    #     for r in range(0,1):
+    #         for c in range(0,7):
+    #             print (arr[r][c], "This row could represent your hours spent ", activity1)
 
 test= time()
-test.printlines()
+r = int(input("How many activities do you want to do? "))
+# test.activities_list(r)
+test.ask(r)
